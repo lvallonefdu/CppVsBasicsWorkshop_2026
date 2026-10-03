@@ -3,18 +3,33 @@
 
 #include <iostream>
 
+// prototype for the helper function(s)
+void displayGameIntro();
+
+
 int main()
 {
-    std::cout << "\n\n\t\t\t\tWelcome to the 2026 C++ Basics Workshop!\n\n\n\n\n";
+	displayGameIntro();
+	return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+/**
+ * helper function to display the game intro message.
+ *   defines the message strings, which are then printed to the console using std::cout.
+ * 
+ * ToDo - use UI class for displaying messages to the user (ie replace cout with UI::displayMessage() or similar)
+ */
+void displayGameIntro() {
+    const std::string WELCOME_MESSAGE = "\n\n\t\t\t\tWelcome to the 2026 C++ Basics Workshop!\n";
+	const std::string INSTRUCTIONS = "In this workshop, you will learn the basics of C++ programming, including variables, data types, control structures, functions, and more.\n\n";
+    const std::string GAME_RULES_LINE1 = "Nim is a two-player, turn-based game in which players take turns removing 1 to 3 sticks from a shared pile.\n";
+    const std::string GAME_RULES_LINE2 = "The player who removes the last stick wins. The game continues until all sticks have been removed.\n";
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+    std::cout << WELCOME_MESSAGE;
+    std::cout << std::endl;
+    std::cout << INSTRUCTIONS;
+    std::cout << std::endl << std::endl;
+    std::cout << GAME_RULES_LINE1;
+    std::cout << GAME_RULES_LINE2;
+    std::cout << std::endl;
+}
