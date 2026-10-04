@@ -3,6 +3,17 @@
 
 #include <iostream>
 
+/*****************************************************************
+ * \file   CppVsBasicsWorkshop_2026.cpp
+ * \brief  main() program to play Nim, a two-player game where players take turns removing 1 to 3 sticks from a shared pile. The player who removes the last stick wins.
+ *
+ * Version supports two human players
+ *
+ *
+ * \author Lee
+ * \date   October 2026
+ *********************************************************************/
+
 // prototype for the helper function(s)
 void displayGameIntro();
 
@@ -14,8 +25,10 @@ int main()
 }
 
 /**
- * helper function to display the game intro message.
- *   defines the message strings, which are then printed to the console using std::cout.
+ * @brief helper function to display the game intro message.
+ *   
+ * @internal
+ * defines the message strings, which are then printed to the console using std::cout.
  * 
  * ToDo - use UI class for displaying messages to the user (ie replace cout with UI::displayMessage() or similar)
  */
