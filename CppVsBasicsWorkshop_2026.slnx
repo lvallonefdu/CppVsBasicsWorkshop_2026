@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="CppVsBasicsWorkshop_2026/CppVsBasicsWorkshop_2026.vcxproj" />
+  <Project Path="CppVsBasicsWorkshop_2026/CppVsBasicsWorkshop_2026.vcxproj" Id="612d5d43-31ef-491f-8c0b-cd16a242ff2d" />
 </Solution>
