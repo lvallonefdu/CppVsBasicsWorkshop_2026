@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "UI.h"
+#include "Player.h"
 
 // prototype for the helper function(s)
 void displayGameIntro();
@@ -10,7 +11,20 @@ void displayGameIntro();
 
 int main()
 {
+  // display intro
+  // for each player, ask for name from UI and create player objects
+  // create game object(which initializes number of sticks)
+  // display # of sticks and whose turn it is
+  // ask Player for move, ask UI for player’s move, validates move from Game and if valid, play the move(Game), if invalid, request again
+  // if game is over, display win message for player and end game
+
 	displayGameIntro();
+	Player player1(UI::getPlayerInput("Enter name for Player 1: "));
+    Player player2(UI::getPlayerInput("Enter name for Player 2: "));
+    // verify
+	UI::displayMessage("Player 1: " + player1.getPlayerName());
+	UI::displayMessage("Player 2: " + player2.getPlayerName());
+
 	return 0;
 }
 
@@ -33,8 +47,4 @@ void displayGameIntro() {
     UI::displayMessage(GAME_RULES_LINE1);
     UI::displayMessage(GAME_RULES_LINE2);
     UI::displayMessage("");
-
-	// let's test the getPlayerInput method
-    string playerInput = UI::getPlayerInput("Enter your name: ");
-    UI::displayMessage("Hello, " + playerInput + "!");
 }
