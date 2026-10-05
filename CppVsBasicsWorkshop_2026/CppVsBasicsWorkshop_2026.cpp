@@ -2,6 +2,8 @@
 //
 
 #include <iostream>
+#include "UI.h"
+#include "Player.h"
 
 /*****************************************************************
  * \file   CppVsBasicsWorkshop_2026.cpp
@@ -21,7 +23,13 @@ void displayGameIntro();
 int main()
 {
 	displayGameIntro();
-	return 0;
+    std::string player1Name = UI::getPlayerInput("Enter your name");
+    Player player1(player1Name);
+    std::string player2Name = UI::getPlayerInput("Enter your name");
+    Player player2(player2Name);
+    UI::displayMessage("Welcome" + player1.getPlayerName());
+    UI::displayMessage("Welcome" + player2.getPlayerName());
+
 }
 
 /**
@@ -38,11 +46,13 @@ void displayGameIntro() {
     const std::string GAME_RULES_LINE1 = "Nim is a two-player, turn-based game in which players take turns removing 1 to 3 sticks from a shared pile.\n";
     const std::string GAME_RULES_LINE2 = "The player who removes the last stick wins. The game continues until all sticks have been removed.\n";
 
-    std::cout << WELCOME_MESSAGE;
-    std::cout << std::endl;
-    std::cout << INSTRUCTIONS;
-    std::cout << std::endl << std::endl;
-    std::cout << GAME_RULES_LINE1;
-    std::cout << GAME_RULES_LINE2;
-    std::cout << std::endl;
+    UI::displayMessage(WELCOME_MESSAGE);
+    UI::displayMessage("");
+    UI::displayMessage(INSTRUCTIONS);
+    UI::displayMessage("");
+    UI::displayMessage(GAME_RULES_LINE1);
+    UI::displayMessage(GAME_RULES_LINE2);
+    UI::displayMessage("");
+
+
 }
