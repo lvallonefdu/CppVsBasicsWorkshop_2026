@@ -11,7 +11,9 @@ MATTHEW'S FIXED BRANCH
 
 */
 #include <iostream>
+#include <string>
 #include "UI.h"
+#include "Player.h"
 
 /*****************************************************************
  * \file   CppVsBasicsWorkshop_2026.cpp
@@ -31,8 +33,6 @@ void displayGameIntro();
 int main()
 {
 	displayGameIntro();
-    std::string playerName = UI::getPlayerInput("What is your name?");
-    UI::displayMessage("Hello, " + playerName + "!");
 	return 0;
 }
 
@@ -57,4 +57,9 @@ void displayGameIntro() {
     UI::displayMessage(GAME_RULES_LINE1);
     UI::displayMessage(GAME_RULES_LINE2);
     UI::displayMessage("");
+
+    std::string playerName = UI::getPlayerInput("What is your name?");
+    Player player1(playerName);
+    UI::displayMessage("Welcome, " + player1.getPlayerName() + "!");
+    
 }
