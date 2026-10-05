@@ -2,7 +2,8 @@
 //
 
 #include <iostream>
-
+#include<string>
+#include "UI.h"
 /*****************************************************************
  * \file   CppVsBasicsWorkshop_2026.cpp
  * \brief  main() program to play Nim, a two-player game where players take turns removing 1 to 3 sticks from a shared pile. The player who removes the last stick wins.
@@ -21,6 +22,8 @@ void displayGameIntro();
 int main()
 {
 	displayGameIntro();
+    std::string name = UI::getPlayerInput("Please Enter your Name");
+	UI::displayMessage("Hello " + name + ", let's play Nim!");
 	return 0;
 }
 
@@ -38,11 +41,11 @@ void displayGameIntro() {
     const std::string GAME_RULES_LINE1 = "Nim is a two-player, turn-based game in which players take turns removing 1 to 3 sticks from a shared pile.\n";
     const std::string GAME_RULES_LINE2 = "The player who removes the last stick wins. The game continues until all sticks have been removed.\n";
 
-    std::cout << WELCOME_MESSAGE;
-    std::cout << std::endl;
-    std::cout << INSTRUCTIONS;
-    std::cout << std::endl << std::endl;
-    std::cout << GAME_RULES_LINE1;
-    std::cout << GAME_RULES_LINE2;
-    std::cout << std::endl;
+    UI::displayMessage(WELCOME_MESSAGE);
+    UI::displayMessage(std::string());
+    UI::displayMessage(INSTRUCTIONS);
+    UI::displayMessage(std::string());
+    UI::displayMessage(GAME_RULES_LINE1);
+    UI::displayMessage(GAME_RULES_LINE2);
+    UI::displayMessage(std::string());
 }
