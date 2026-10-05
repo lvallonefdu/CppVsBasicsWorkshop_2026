@@ -2,7 +2,9 @@
 //
 
 #include <iostream>
+#include <string>
 #include "UI.h"
+#include "Player.h"
 
 /*****************************************************************
  * \file   CppVsBasicsWorkshop_2026.cpp
@@ -46,4 +48,8 @@ void displayGameIntro() {
     UI::displayMessage(GAME_RULES_LINE1);
     UI::displayMessage(GAME_RULES_LINE2);
     UI::displayMessage("");
+
+	std::string player1Name = UI::getPlayerInput("Player 1, please enter your name: ");
+	Player player1(player1Name);
+    UI::displayMessage("Welcome, " + player1.getPlayerName() + "!");
 }
