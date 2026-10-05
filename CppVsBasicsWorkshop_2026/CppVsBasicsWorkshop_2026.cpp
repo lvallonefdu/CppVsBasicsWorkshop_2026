@@ -4,6 +4,7 @@
 #include <iostream>
 #include<string>
 #include "UI.h"
+#include "Player.h"
 /*****************************************************************
  * \file   CppVsBasicsWorkshop_2026.cpp
  * \brief  main() program to play Nim, a two-player game where players take turns removing 1 to 3 sticks from a shared pile. The player who removes the last stick wins.
@@ -48,4 +49,8 @@ void displayGameIntro() {
     UI::displayMessage(GAME_RULES_LINE1);
     UI::displayMessage(GAME_RULES_LINE2);
     UI::displayMessage(std::string());
+
+    std::string playername = UI::getPlayerInput("Please enter your name: ");
+	Player player(playername);
+    UI::displayMessage("Hello " + player.getPlayerName() + "!");
 }
