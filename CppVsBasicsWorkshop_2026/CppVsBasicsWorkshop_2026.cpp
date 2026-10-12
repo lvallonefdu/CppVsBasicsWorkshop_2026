@@ -4,6 +4,7 @@
 #include <iostream>
 #include "UI.h"
 #include "Player.h"
+#include "Game.h"
 
 /*****************************************************************
  * \file   CppVsBasicsWorkshop_2026.cpp
@@ -22,14 +23,49 @@ void displayGameIntro();
 
 int main()
 {
+	// display intro
+  // for each player, ask for name from UI and create player objects
+  // create game object(which initializes number of sticks)
+  // display # of sticks and whose turn it is
+  // ask Player for move, ask UI for player’s move, validates move from Game and if valid, play the move(Game), if invalid, request again
+  // if game is over, display win message for player and end game
+
 	displayGameIntro();
+	Player player1(UI::getPlayerInput("Enter name for Player 1: "));
+	Player player2(UI::getPlayerInput("Enter name for Player 2: "));
+	// verify
+	UI::displayMessage("Player 1: " + player1.getPlayerName());
+	UI::displayMessage("Player 2: " + player2.getPlayerName());
 
-	std::string playerName =UI::getPlayerInput("Please enter your name: ");
+	// create game object
+	Game game;
 
-    Player player1 = Player(playerName);
-    Player player2 = Player("bob");
-    UI::displayMessage(player1.getPlayerName());
-    UI::displayMessage(player2.getPlayerName());
+	// display # of sticks and whose turn it is
+	UI::displayMessage("\nThe game begins with " + std::to_string(game.getNumSticksRemaining()) + " sticks.");
+
+	// let's ask player 1 for their move
+	Player nextToPlay = player1;
+	do {
+		std::string moveString = UI::getPlayerInput(nextToPlay.getPlayerName() + ", press Enter number of sticks to remove:  ");
+		// if move is valid, play the move, if invalid, request again
+		int move = std::stoi(moveString);
+		if (game.isPlayerMoveValid(move)) {
+			game.removeSticks(move);
+			UI::displayMessage(nextToPlay.getPlayerName() + " removed " + std::to_string(move) +
+				" sticks. " + std::to_string(game.getNumSticksRemaining()) + " sticks remain.\n");
+
+			// if the game isn't over, switch to the other player, loop will exit if game is over
+			//   could break here, making the while loop redundant - safer, but ...
+			//   if an invalid move, will repeat with the same player
+			if (!game.isGameOver()) {
+				nextToPlay = (nextToPlay.getPlayerName() == player1.getPlayerName()) ? player2 : player1;
+			}
+		}
+		else {
+			UI::displayMessage("Invalid move. Please try again.");
+		}
+	} while (!game.isGameOver());
+	UI::displayMessage("\nGame over! " + nextToPlay.getPlayerName() + " wins!\n");
 
 	return 0;
 }
